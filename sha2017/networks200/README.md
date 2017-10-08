@@ -16,7 +16,7 @@
 
 8. Run it through a decoder/beautifier and see that data is being extracted from notit.txt.
 
-9. You can modify ads.html to include this code directly intead of having to make modifications to it, base64 encoding it, copying it in, etc.
+9. You can modify ads.html to include this code directly, like in [adsShowHiddenJS.html](adsShowHiddenJS.html), intead of having to make modifications to it, base64 encoding it, copying it in, etc.
 
 10. To see what would be run through eval in function a, use console.log to output to the console view in firefox.
 
