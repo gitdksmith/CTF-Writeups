@@ -5,6 +5,7 @@ If we run jumparound all we get is a message saying we better jump higher.
 
 Lets start by opening this in gdb and looking at main.
 
+```
 $ gdb jumparound
 (gdb) b main
 (gdb) disas
@@ -21,6 +22,7 @@ $ gdb jumparound
    0x000000000040064c <+38>:    callq  0x400546 <print_flag>
    0x0000000000400651 <+43>:    leaveq 
    0x0000000000400652 <+44>:    retq
+```
 
 If we use 'ni' to move through the program one instruction at a time we see that we do not take the jne at <+19>, and when we enter the call `callq  0x400410 <puts@plt>` the function is long and convoluted. 
 
