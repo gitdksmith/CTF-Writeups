@@ -28,7 +28,7 @@ If we use 'ni' to move through the program one instruction at a time we see that
 
 We also see that if we were to take that first jump at jne, we would be place right before the instruction `callq  0x400546 <print_flag>`. So lets set a break at jne.
 
-`(gdb) b \*0x0000000000400639(edited)`
+`(gdb) b \*0x0000000000400639`
 
 ## == Flag Approach ==
 
